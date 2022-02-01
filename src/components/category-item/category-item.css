@@ -1,0 +1,25 @@
+button {
+    height: 57px;
+    width: 170px;
+    position: relative;
+    top: 180px;
+    transform: translate(-10%, 0);
+    border: none;
+    background: #FFFFFF;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 19px;
+    color: #1C1C39;
+    text-align: center;
+}
+
+button:hover {
+    background: #422ED4;
+    color: #FFFFFF;
+}

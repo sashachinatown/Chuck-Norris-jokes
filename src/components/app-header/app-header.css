@@ -1,0 +1,33 @@
+.app-header {
+    position: absolute;
+    width: 1440px;
+    height: 59px;
+    left: 0px;
+    top: 0px;
+    background: #422ED4;
+}
+
+.d-flex {
+    width: 100%;
+}
+
+.logo {
+    position: relative;
+    width: 43px;
+    height: 43px;
+    left: 8%;
+    top: 8px;
+}
+
+.app-header-text {
+    position: relative;
+    margin-left: 8.5%;
+    top: 30%;
+    font-family: Raleway !important;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
