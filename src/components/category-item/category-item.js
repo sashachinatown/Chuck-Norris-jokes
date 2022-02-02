@@ -2,40 +2,46 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import './category-item.css';
 
-const CategoryItem = ({onClick}) => {
-    const [category, setCategory] = useState([]);
-    const [random, setRandom] = useState([]);
+const CategoryItem = ({onSetCategory}) => {
+    const [categoryBtn, setCategoryBtn] = useState([]);
+  
     
-    const onRandom = () => {
-        onClick(random.value);
+    const onCategory = (e) => {
+        if(e.target.value === 'random') {
+            axios.get('https://api.chucknorris.io/jokes/random')
+            .then(res => {
+                onSetCategory(res.data.value);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        } else {
+            axios.get(`https://api.chucknorris.io/jokes/random?category=${e.target.value}`)
+                .then(res => {
+                    onSetCategory(res.data.value);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        }
     };
 
     useEffect(() => {
         axios.get('https://api.chucknorris.io/jokes/categories')
             .then(res => {
-                setCategory(res.data);
+                setCategoryBtn(res.data);
             })
             .catch(err => {
                 console.log(err);
             })
     }, [])
 
-    useEffect(() => {
-        axios.get('https://api.chucknorris.io/jokes/random')
-            .then(res => {
-                setRandom(res.data);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    })
-
     return (
         <ul>
             {
-                category.map(item => (<button key={item}>{item}</button>))
+                categoryBtn.map(item => (<button onClick={onCategory} key={item} value={item}>{item}</button>))
             }
-            <button onClick={onRandom}>random</button>
+            <button onClick={onCategory} value="random">random</button>
         </ul>
     )
 }

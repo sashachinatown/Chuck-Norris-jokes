@@ -7,15 +7,15 @@ import CategoryItem from "../category-item";
 import Quotes from "../quotes/quotes";
 
 const App = () => {
-const [quote, setQuote] = useState([])
-const onRandom = (quote) => {
+const [quote, setQuote] = useState([]);
+const onCategory = (quote) => {
     setQuote(quote);
 }
 return (
     <div>
         <AppHeader/>
         <AppTitle/>
-        <div className="btn-group"><CategoryItem onClick={onRandom}/></div>
+        <div className="btn-group"><CategoryItem onSetCategory={onCategory}/></div>
         <Quotes quote={quote}/>
     </div>
 )
